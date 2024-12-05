@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,18 +22,46 @@
       }
     ],
     "paths": {
-      "@*": ["./src/*"],
-      "@public/*": ["./public/*"],
-      "@images/*": ["./public/images/*"],
-      "@icons/*": ["./public/icons/*"],
-      "@lottie/*": ["./public/lottie/*"],
-      "@common/*": ["./src/common/*"],
-      "@constants/*": ["./src/constants/*"],
-      "@domains/*": ["./src/domains/*"],
-      "@fonts/*": ["./src/fonts/*"],
-      "@shared/*": ["./src/shared/*"]
-    }
+      "@*": [
+        "./src/*"
+      ],
+      "@public/*": [
+        "./public/*"
+      ],
+      "@images/*": [
+        "./public/images/*"
+      ],
+      "@icons/*": [
+        "./public/icons/*"
+      ],
+      "@lottie/*": [
+        "./public/lottie/*"
+      ],
+      "@common/*": [
+        "./src/common/*"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
+      "@domains/*": [
+        "./src/domains/*"
+      ],
+      "@fonts/*": [
+        "./src/fonts/*"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ]
+    },
+    "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

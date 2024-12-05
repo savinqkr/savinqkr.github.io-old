@@ -11,6 +11,7 @@ const PATH = {
   },
   GITHUB: "https://github.com/savinqkr",
   NOTION: "",
+  TISTORY: "https://savinqkr.tistory.com",
   LINKEDIN: "https://www.linkedin.com/in/savinqkr",
 };
 

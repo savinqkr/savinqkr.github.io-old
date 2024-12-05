@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,7 +18,16 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@*": ["./src/*"],
+      "@public/*": ["./public/*"],
+      "@images/*": ["./public/images/*"],
+      "@icons/*": ["./public/icons/*"],
+      "@lottie/*": ["./public/lottie/*"],
+      "@common/*": ["./src/common/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@domains/*": ["./src/domains/*"],
+      "@fonts/*": ["./src/fonts/*"],
+      "@shared/*": ["./src/shared/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

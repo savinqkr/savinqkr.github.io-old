@@ -11,12 +11,12 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "savinqkr",
-  description: "savinqkr 의 Github Blog 입니다.",
+  title: "SAVINQKR",
+  description: "SAVINQKR 의 Github Blog 입니다.",
   openGraph: {
-    title: "savinqkr",
-    description: "savinqkr 의 Github Blog 입니다.",
-    siteName: "savinqkr",
+    title: "SAVINQKR",
+    description: "SAVINQKR 의 Github Blog 입니다.",
+    siteName: "SAVINQKR",
     locale: "ko_KR",
     url: "",
     images: [
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    title: "savinqkr",
-    description: "savinqkr 의 Github Blog",
+    title: "SAVINQKR",
+    description: "SAVINQKR 의 Github Blog",
     images: {
       url: "",
       alt: "",

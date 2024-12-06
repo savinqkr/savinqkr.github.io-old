@@ -16,8 +16,8 @@ const Header: React.FC = () => {
         <div className="flex flex-row items-center gap-6">
           <Menu name="Devlog" href={PATH.DEVLOG.MAIN} />
           <Menu name="Projects" href={PATH.PROJECT.MAIN} />
-          <Menu name="Github" href={PATH.GITHUB} />
-          <Menu name="Tistory" href={PATH.TISTORY} />
+          <Menu name="Github" href={PATH.GITHUB} isExternal />
+          <Menu name="Tistory" href={PATH.TISTORY} isExternal />
         </div>
       </div>
     </header>

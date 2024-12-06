@@ -1,5 +1,7 @@
 "use client";
 
+import CalendarIcon from "@icons/calendar.svg";
+
 interface PostProps {
   id: string;
   title: string;
@@ -18,7 +20,10 @@ const Post: React.FC<PostProps> = ({ id, title, contents, thumbnail, createdAt, 
           <p className="line-clamp-1 text-subtitle_bold_14 text-gray12">{title}</p>
           <p className="line-clamp-2 text-body_medium_12 text-gray10">{contents}</p>
         </div>
-        <p className="text-body_medium_12 text-gray08">2024년 12월 24일</p>
+        <div className="flex flex-row items-center gap-1">
+          <CalendarIcon width={12} height={12} className="h-3 w-3 text-gray08" />
+          <p className="text-body_medium_12 text-gray08">2024년 12월 24일</p>
+        </div>
       </div>
     </div>
   );

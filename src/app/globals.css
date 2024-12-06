@@ -17,6 +17,9 @@
     @apply bg-gray01;
   }
 
+  main {
+  }
+
   a {
     @apply no-underline;
   }

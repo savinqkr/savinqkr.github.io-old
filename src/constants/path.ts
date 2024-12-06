@@ -1,5 +1,8 @@
 const PATH = {
   MAIN: "/",
+  ADMIN: {
+    MAIN: "/admin",
+  },
   DEVLOG: {
     MAIN: "/devlog",
   },

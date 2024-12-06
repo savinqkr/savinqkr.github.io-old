@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PATH from "@constants/path";
 import RocketIcon from "@icons/rocket.svg";
+import Menu from "./Menu";
 
 const Header: React.FC = () => {
   return (
@@ -13,29 +14,10 @@ const Header: React.FC = () => {
           </Link>
         </div>
         <div className="flex flex-row items-center gap-6">
-          <Link href={PATH.DEVLOG.MAIN} className="text-subtitle_medium_14 text-gray08 pc:text-subtitle_medium_16">
-            <span>Devlog</span>
-          </Link>
-          <Link href={PATH.PROJECT.MAIN} className="text-subtitle_medium_14 text-gray08 pc:text-subtitle_medium_16">
-            <span>Projects</span>
-          </Link>
-          {/* <Link href={PATH.ABOUT.MAIN} className="text-gray08 text-subtitle_medium_14 pc:text-subtitle_medium_16">
-            <span>About</span>
-          </Link> */}
-          <Link
-            href={PATH.GITHUB}
-            target="_black"
-            className="text-subtitle_medium_14 text-gray08 pc:text-subtitle_medium_16"
-          >
-            <span>Github</span>
-          </Link>
-          <Link
-            href={PATH.TISTORY}
-            target="_black"
-            className="text-subtitle_medium_14 text-gray08 pc:text-subtitle_medium_16"
-          >
-            <span>Tistory</span>
-          </Link>
+          <Menu name="Devlog" href={PATH.DEVLOG.MAIN} />
+          <Menu name="Projects" href={PATH.PROJECT.MAIN} />
+          <Menu name="Github" href={PATH.GITHUB} />
+          <Menu name="Tistory" href={PATH.TISTORY} />
         </div>
       </div>
     </header>

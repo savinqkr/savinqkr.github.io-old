@@ -1,6 +1,6 @@
 import { Post } from "@domains/devlog";
 
-export default function Home() {
+export default function Devlog() {
   return (
     <div className="grid w-full grid-cols-4 gap-2">
       <Post

@@ -13,7 +13,7 @@ interface PostProps {
 
 const Post: React.FC<PostProps> = ({ id, title, contents, thumbnail, createdAt, updatedAt }) => {
   return (
-    <div className="shadow-x0_y2_b2_0.1 w-full cursor-pointer rounded-[4px] bg-white" onClick={() => console.log(id)}>
+    <div className="w-full cursor-pointer rounded-[4px] bg-white shadow-x0_y2_b2_0.1" onClick={() => console.log(id)}>
       <div className="h-[160px] w-full rounded-tl-[4px] rounded-tr-[4px] bg-gray05" />
       <div className="flex h-[140px] flex-col justify-between p-4">
         <div className="flex flex-col gap-2">

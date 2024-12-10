@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Footer, Header } from "@common/components";
+import { Footer, Header, RecoilProviders } from "@common/components";
+import { RecoilRoot } from "recoil";
 
 const pretendard = localFont({
   src: "../fonts/PretendardVariable.woff2",
@@ -45,9 +46,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${pretendard.variable} flex min-h-[100vh] flex-col font-pretendard`}>
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <RecoilProviders>
+          <Header />
+          <main className="flex h-full w-full flex-grow flex-col">{children}</main>
+          <Footer />
+        </RecoilProviders>
       </body>
     </html>
   );

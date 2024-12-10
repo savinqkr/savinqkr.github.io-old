@@ -5,7 +5,7 @@ import Menu from "./Menu";
 
 const Header: React.FC = () => {
   return (
-    <header className="flex w-full flex-row items-center justify-center bg-white px-4 shadow-x0_y4_b4_0.05">
+    <header className="z-[999] flex w-full flex-row items-center justify-center bg-white px-4 shadow-x0_y4_b4_0.05">
       <div className="flex h-[80px] w-full max-w-[1060px] flex-col items-start justify-center gap-2 pc:flex-row pc:items-center pc:justify-between">
         <div className="flex flex-row items-center gap-2">
           <RocketIcon width={20} height={20} className="h-4 w-4 pc:h-5 pc:w-5" />

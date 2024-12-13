@@ -1,2 +1,2 @@
 export * from "./path";
-export * from "./cookie-key";
+export * from "./redux-key";

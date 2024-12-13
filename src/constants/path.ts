@@ -5,6 +5,7 @@ const PATH = {
   },
   DEVLOG: {
     MAIN: "/devlog",
+    CREATE: "/devlog/create",
   },
   PROJECT: {
     MAIN: "/project",

@@ -15,7 +15,7 @@ const Menu: React.FC<MenuProps> = ({ name, href, isExternal }) => {
     <Link
       href={href}
       target={isExternal ? "_blank" : undefined}
-      className={`text-subtitle_medium_14 ${pathname === href ? "text-point" : "text-gray08"} pc:text-subtitle_medium_16`}
+      className={`text-subtitle_medium_14 ${pathname.startsWith(href) ? "text-point" : "text-gray08"} pc:text-subtitle_medium_16`}
     >
       <span>{name}</span>
     </Link>

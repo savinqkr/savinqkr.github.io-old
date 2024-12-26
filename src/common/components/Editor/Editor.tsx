@@ -5,7 +5,7 @@ import EditorJS, { OutputData } from "@editorjs/editorjs";
 import { EDITOR_TOOLS } from "./EditorTools";
 import DragDrop from "editorjs-drag-drop";
 import Undo from "editorjs-undo";
-
+import "./editor.css";
 interface EditorProps {
   data?: OutputData;
   onChange: (content: OutputData) => void;
@@ -44,13 +44,9 @@ function Editor({ data, onChange, holder }: EditorProps): React.JSX.Element {
         ref.current.destroy?.();
       }
     };
-  }, [data, onChange, holder]);
+  }, [holder]);
 
-  return (
-    <div className="w-full p-4">
-      <div id={holder} className="prose min-h-[600px] min-w-full rounded-[8px] border border-gray07 bg-white" />
-    </div>
-  );
+  return <div id={holder} className="prose min-h-[600px] min-w-full max-w-full bg-white" />;
 }
 
 export default Editor;

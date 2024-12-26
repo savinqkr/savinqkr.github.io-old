@@ -1,36 +1,34 @@
 "use client";
 
 import { NextPage } from "next";
-import { useState } from "react";
-import { remark } from "remark";
-import html from "remark-html";
+import React, { useState } from "react";
+import dynamic from "next/dynamic";
+import { OutputData } from "@editorjs/editorjs";
+import { createReactEditorJS } from "react-editor-js";
+import { EDITOR_TOOLS } from "@common/components/Editor/EditorTools";
 
-const MarkdownEditor: NextPage = () => {
-  const [markdown, setMarkdown] = useState<string>("");
-  const [htmlContent, setHtmlContent] = useState<string>("");
+// Editor.js 컴포넌트를 동적 로드하여 SSR에서 문제를 방지합니다.
+const Editor = dynamic(() => import("@common/components/Editor/Editor"), {
+  ssr: false,
+});
 
-  const handleInputChange = async (e: any) => {
-    const inputText = e.target.value;
-    setMarkdown(inputText);
+const EditorJs: NextPage = () => {
+  const [editorData, setEditorData] = useState<OutputData>({ blocks: [] });
 
-    // 마크다운을 HTML로 변환
-    const processedHtml = await remark().use(html).process(inputText);
-    setHtmlContent(processedHtml.toString());
+  const handleEditorChange = (data: OutputData) => {
+    console.log("Editor Data:", data);
+    // setEditorData(data);
   };
 
+  const ReactEditorJS = createReactEditorJS();
+
   return (
-    <main>
-      <div style={{ display: "flex", gap: "20px" }}>
-        <textarea
-          style={{ width: "50%", height: "400px" }}
-          value={markdown}
-          onChange={handleInputChange}
-          placeholder="Enter Markdown here..."
-        />
-        <div className="prose" dangerouslySetInnerHTML={{ __html: htmlContent }} />
-      </div>
-    </main>
+    <div className="w-full">
+      <h1 className="py-10 text-center text-body_bold_18">Editor.js Playground</h1>
+      {/* <ReactEditorJS defaultBlock="paragraph" tools={EDITOR_TOOLS} />; */}
+      <Editor data={editorData} onChange={handleEditorChange} holder="editorjs" />
+    </div>
   );
 };
 
-export default MarkdownEditor;
+export default EditorJs;

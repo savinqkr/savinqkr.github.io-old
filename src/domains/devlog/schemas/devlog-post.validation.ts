@@ -1,6 +1,7 @@
 import * as z from "zod";
 
 export const DevlogPostSchema = z.object({
+  isDraft: z.boolean().default(false),
   category: z.string().default("카테고리 없음"),
   title: z.string({
     required_error: "글 제목을 입력해주세요.",
@@ -11,6 +12,7 @@ export const DevlogPostSchema = z.object({
   //     required_error: "글 내용을 입력해주세요.",
   //   })
   //   .min(1, "글 내용을 입력해주세요."),
+  description: z.string().optional(),
   contents: z.string().optional(),
 });
 

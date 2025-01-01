@@ -4,79 +4,56 @@ import { Button } from "@common/components/Button";
 import { Editor } from "@common/components/Editor";
 import firestore from "@common/firebase/firestore";
 import { DATABASE } from "@constants";
-import PATH from "@constants/path";
 import { DevlogPostFormData, DevlogPostSchema } from "@domains/devlog";
+import { PostProps } from "@domains/devlog/components/Post";
 import { OutputData } from "@editorjs/editorjs";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
-export default function CreateDevlogPostPage() {
+export default function EditDevlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params); // React.use()로 Promise를 언래핑
   const { push } = useRouter();
 
   const {
     handleSubmit,
     getValues,
+    setValue,
     control,
     formState: { errors },
   } = useForm<DevlogPostFormData>({
     resolver: zodResolver(DevlogPostSchema),
-    // defaultValues: { date: Date.now(), category: "카테고리 없음", title: "this is title", contents: "" },
     defaultValues: { isDraft: false, category: "카테고리 없음", title: "", description: "", contents: "" },
   });
 
-  // REMARK
-  // const [htmlContent, setHtmlContent] = useState<string>("");
-  // const handleInputChange = async (value: string) => {
-  //   const processedHtml = await remark().use(html).process(value);
-  //   setHtmlContent(processedHtml.toString());
-  // };
+  const [contents, setContents] = useState<OutputData>();
 
-  const onClickSubmit = async () => {
-    const result = await addDoc(collection(firestore, DATABASE.DEVLOG), {
-      category: getValues("category"),
-      title: getValues("title"),
-      description: getValues("description"),
-      contents: getValues("contents"),
-      isDraft: false,
-      createdAt: Date.now(),
-    });
-    if (!!result.id) {
-      push(`${PATH.DEVLOG.MAIN}/${result.id}`);
-    }
-  };
-
-  // DRAFT COUNT
-  const onClickSaveDraft = async () => {
-    const result = await addDoc(collection(firestore, DATABASE.DEVLOG), {
-      category: getValues("category"),
-      title: getValues("title"),
-      description: getValues("description"),
-      contents: getValues("contents"),
-      isDraft: true,
-      draftSavedAt: Date.now(),
-    });
-    if (!!result.id) {
-      alert("임시저장 완료");
-    }
-  };
-
-  const [draftCnt, setDraftCnt] = useState<number>(0);
   useEffect(() => {
-    const fetchDraftCount = async () => {
+    const fetchPost = async () => {
       try {
-        const draftRef = collection(firestore, DATABASE.DEVLOG);
-        const q = query(draftRef, where("isDraft", "==", true));
-        const draftSnap = await getDocs(q);
-        setDraftCnt(draftSnap.size);
+        const docRef = doc(firestore, DATABASE.DEVLOG, slug);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const parsedContents: OutputData = JSON.parse(docSnap.data().contents);
+          const post = { id: docSnap.id, parsedContents, ...docSnap.data() } as PostProps;
+
+          setValue("title", post.title);
+          if (post.category) setValue("category", post.category);
+          if (post.description) setValue("description", post.description);
+          setContents(post.parsedContents);
+        }
       } catch (error) {
-        console.error("Error fetching draft count:", error);
+        console.error("Failed to fetch post:", error);
       }
     };
-    fetchDraftCount();
-  }, [onClickSaveDraft]);
+
+    fetchPost();
+  }, [slug]);
+
+  const onClickSubmit = async () => {};
 
   return (
     <form className="flex w-full flex-col gap-6" onSubmit={handleSubmit(onClickSubmit)}>
@@ -122,7 +99,8 @@ export default function CreateDevlogPostPage() {
         render={({ field }) => (
           <Editor
             {...field}
-            holder="create-post"
+            data={contents}
+            holder={`edit-post-${slug}`}
             onChange={(data: OutputData) => field.onChange(JSON.stringify(data))}
           />
         )}
@@ -130,11 +108,8 @@ export default function CreateDevlogPostPage() {
 
       <div className="fle-row flex justify-end">
         <div className="fle-row flex gap-4">
-          <Button type="button" color="point" size="medium" style="outline" onClick={onClickSaveDraft}>
-            <Button.Text>임시 저장 | {draftCnt}</Button.Text>
-          </Button>
           <Button type="submit" color="point" size="medium" style="outline">
-            <Button.Text>등록하기</Button.Text>
+            <Button.Text>수정하기</Button.Text>
           </Button>
         </div>
       </div>

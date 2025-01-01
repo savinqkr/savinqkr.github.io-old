@@ -10,8 +10,8 @@ const PATH = {
   PROJECT: {
     MAIN: "/project",
   },
-  ABOUT: {
-    MAIN: "/about",
+  RESUME: {
+    MAIN: "/resume",
   },
   GITHUB: "https://github.com/savinqkr",
   NOTION: "",

@@ -4,8 +4,6 @@ import { NextPage } from "next";
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { OutputData } from "@editorjs/editorjs";
-import { createReactEditorJS } from "react-editor-js";
-import { EDITOR_TOOLS } from "@common/components/Editor/EditorTools";
 
 // Editor.js 컴포넌트를 동적 로드하여 SSR에서 문제를 방지합니다.
 const Editor = dynamic(() => import("@common/components/Editor/Editor"), {
@@ -19,8 +17,6 @@ const EditorJs: NextPage = () => {
     console.log("Editor Data:", data);
     // setEditorData(data);
   };
-
-  const ReactEditorJS = createReactEditorJS();
 
   return (
     <div className="w-full">

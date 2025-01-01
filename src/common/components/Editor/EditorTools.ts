@@ -44,21 +44,21 @@ export const EDITOR_TOOLS: { [key: string]: ToolSettings | any } = {
       placeholder: "Enter a paragraph...",
     },
   },
-  image: {
-    class: Image,
-    config: {
-      // endpoints: {
-      //   byFile: "/api/uploadFile", // 파일 업로드 엔드포인트
-      //   byUrl: "/api/fetchUrl", // URL로 이미지 업로드
-      // },
-      // uploader: {
-      //   uploadByFile(file: any) {
-      //     let formData = new FormData();
-      //     formData.append("images", file);
-      //   },
-      // },
-    },
-  },
+  // image: {
+  //   class: Image,
+  //   config: {
+  //     // endpoints: {
+  //     //   byFile: "/api/uploadFile", // 파일 업로드 엔드포인트
+  //     //   byUrl: "/api/fetchUrl", // URL로 이미지 업로드
+  //     // },
+  //     // uploader: {
+  //     //   uploadByFile(file: any) {
+  //     //     let formData = new FormData();
+  //     //     formData.append("images", file);
+  //     //   },
+  //     // },
+  //   },
+  // },
   attaches: {
     class: AttacheTools,
   },

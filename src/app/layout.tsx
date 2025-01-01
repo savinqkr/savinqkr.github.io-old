@@ -13,6 +13,9 @@ const pretendard = localFont({
 export const metadata: Metadata = {
   title: "SAVINQKR",
   description: "SAVINQKR 의 Github Blog 입니다.",
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "SAVINQKR",
     description: "SAVINQKR 의 Github Blog 입니다.",

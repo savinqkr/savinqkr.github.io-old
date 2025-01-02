@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Footer, Header } from "@common/components";
+import { Footer, Header, RootProvider } from "@common/components";
 
 const pretendard = localFont({
   src: "../fonts/PretendardVariable.woff2",
@@ -13,6 +13,9 @@ const pretendard = localFont({
 export const metadata: Metadata = {
   title: "SAVINQKR",
   description: "SAVINQKR 의 Github Blog 입니다.",
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "SAVINQKR",
     description: "SAVINQKR 의 Github Blog 입니다.",
@@ -44,10 +47,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${pretendard.variable} font-pretendard`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+      <body className={`${pretendard.variable} flex min-h-[100vh] flex-col font-pretendard`}>
+        <RootProvider>
+          <Header />
+          <main className="flex h-full w-full flex-grow flex-col">{children}</main>
+          <Footer />
+        </RootProvider>
       </body>
     </html>
   );

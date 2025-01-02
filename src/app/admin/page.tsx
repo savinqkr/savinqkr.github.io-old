@@ -1,7 +1,6 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { loginEmail } from "@common/firebase/firebasedb";
 import { FormErrorMessage, FormTextInput } from "@common/components";
 import { Button } from "@common/components/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@redux/store";
 import { setToken } from "@redux/token.reducer";
 import { LoginFormData, LoginSchema } from "@domains/admin";
+import { loginEmail } from "@common/firebase/authentication";
 
 export default function Admin() {
   const { push } = useRouter();

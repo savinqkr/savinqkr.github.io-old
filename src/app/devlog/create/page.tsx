@@ -23,7 +23,6 @@ export default function CreateDevlogPostPage() {
     formState: { errors },
   } = useForm<DevlogPostFormData>({
     resolver: zodResolver(DevlogPostSchema),
-    // defaultValues: { date: Date.now(), category: "카테고리 없음", title: "this is title", contents: "" },
     defaultValues: { isDraft: false, category: "카테고리 없음", title: "", description: "", contents: "" },
   });
 

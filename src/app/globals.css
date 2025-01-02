@@ -6,15 +6,13 @@
   :root {
   }
 
-  .dark {
-  }
-
   html {
-    @apply bg-white;
   }
 
   body {
-    @apply bg-gray01;
+  }
+
+  main {
   }
 
   a {

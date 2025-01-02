@@ -9,6 +9,7 @@ export default {
       black: "#131313",
       white: "#ffffff",
       point: "#6f57a9",
+      notice: "#FFBF00",
       error: "#FF2E00",
       complete: "#00A3FF",
       gray15: "#171717",
@@ -218,8 +219,11 @@ export default {
         pretendard: ["var(--font-pretendard)"],
       },
       boxShadow: {
-        "x0_y4_b4_0.05": "0px 4px 4px rgba(0, 0, 0, 0.05)",
-        "x0_y2_b2_0.1": "0px 2px 2px rgba(0, 0, 0, 0.1)",
+        header_shadow: "0px 4px 4px rgba(0, 0, 0, 0.05)",
+        card_shadow: "0px 2px 2px rgba(0, 0, 0, 0.1)",
+        front_shadow: "0px 1px 9px 0px rgba(107, 107, 107, 0.25)",
+        float_shadow: "0px 1px 16px 0px rgba(41, 41, 41, 0.25)",
+        bottom_shadow: ["0px 0px 2px 0px rgba(0, 0, 0, 0.12)", "0px 8px 16px 0px rgba(0, 0, 0, 0.14)"],
       },
       keyframes: {
         slideIn: {

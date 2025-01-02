@@ -1,5 +1,6 @@
 import { getStorage } from "firebase/storage";
-import firebaseDb from "./firebasedb";
+import firebase from "./firebase";
 
-const storage = getStorage(firebaseDb);
+const storage = getStorage(firebase);
+
 export default storage;

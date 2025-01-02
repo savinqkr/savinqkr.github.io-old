@@ -1,13 +1,17 @@
 const PATH = {
   MAIN: "/",
+  ADMIN: {
+    MAIN: "/admin",
+  },
   DEVLOG: {
     MAIN: "/devlog",
+    CREATE: "/devlog/create",
   },
   PROJECT: {
     MAIN: "/project",
   },
-  ABOUT: {
-    MAIN: "/about",
+  RESUME: {
+    MAIN: "/resume",
   },
   GITHUB: "https://github.com/savinqkr",
   NOTION: "",
